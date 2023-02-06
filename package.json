@@ -3,7 +3,7 @@
     "description": "Support Bot/Manager for Infinity Bot List",
     "author": "Toxic Dev",
     "version": "0.0.1",
-    "main": "src/handlers/client/index.js",
+    "main": "source/handlers/client/index.js",
     "license": "NO LICENSE",
     "private": true,
 
@@ -31,6 +31,6 @@
         "@root": ".",
         "@handlers": "./source/handlers",
         "@plugins": "./source/plugins",
-        "@configs": "./source/settings"
+        "@configs": "./source/configs"
     }
 }

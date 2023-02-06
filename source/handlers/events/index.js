@@ -59,6 +59,19 @@ const loadSlash = async function(client) {
             }
         }
     }
+
+    /**
+ * REGISTER THE SLASH COMMANDS GLOBALLY
+ */
+    client.on("ready", async() => {
+        client.application.commands.set(slash).then(() => {
+            
+            client.logger.SendLogs("Slash commands have been registered successfully", "ready");
+    }).catch((e) => {
+        
+        client.logger.SendLogs(`Failed to register slash commands: ${e.stack}`, "error");
+    })
+  })
 }
 
 /**
@@ -86,16 +99,6 @@ const loadBase = async function(client) {
     })
 }
 
-/**
- * REGISTER THE SLASH COMMANDS GLOBALLY
- */
-client.on("ready", async() => {
-    client.application.commands.set(slash).then(() => {
-        client.logger.SendLogs("Slash commands have been registered successfully", "ready");
-    }).catch((e) => {
-        client.logger.SendLogs(`Failed to register slash commands: ${e.stack}`, "error");
-    })
-})
 
 module.exports = {
     loadEvents,

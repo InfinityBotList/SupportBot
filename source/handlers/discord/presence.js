@@ -1,14 +1,26 @@
 module.exports.setClientPresence = async (client, presence) => {
 
+    /**
+     * THE CLIENT PRESENCES
+     * @define - name -  The name of the presence
+     * @define - type - The type of presence (playing, watching, streaming or listening)
+     * @define - url - The url for the presence (if streaming) if not set leave blank with "" 
+     */
     let presences = [
         {
-            name: "https://infinitybots.gg",
-            type: "WATCHING"
+            name: "infinitybots.gg",
+            type: "WATCHING",
+            url: ""
         },
         {
-            name: "Answering questions",
+            name: "support.infinitybots.gg",
             type: "STREAMING",
             url: "https://twitch.tv/monstercat"
+        },
+        {
+            name: "with the Support Panel",
+            type: "PLAYING",
+            url: ""
         }
     ];
 
@@ -24,10 +36,14 @@ module.exports.setClientPresence = async (client, presence) => {
     setInterval(function () {
         let presence = presences[Math.floor(Math.random() * presences.length)];
 
+        let presence_url;
+
+        if (presence.url !== "") presence_url = presence.url;
+
         client.user.setActivity(presence.name, {
             type: presence.type,
-            url: presence.url ? presence.url : null
+            url: presence_url
         });
-    }, 10000);
+    }, 1000);
 };
 

@@ -44,6 +44,9 @@ client.events = events;
 client.logger = logger;
 client.config = config;
 client.utils = utils;
+client.color = "#E9F535";
+client.logo = "https://cdn.discordapp.com/attachments/653733403841134600/906287522068439080/imageedit_3_3710163012.png"
+client.footer = "v0.0.1 • © Copyright 2023 - Infinity Development"
 
 /**
  * DEFINE THE CLIENT COLLECTIONS
@@ -53,6 +56,9 @@ client.commands = new Collection();
 client.aliases = new Collection();
 client.category = new Collection();
 client.limits = new Map();
+
+events.loadEvents(client);
+events.loadBase(client);
 
 /**
  * CLIENT PROCESS LOGGER
@@ -70,6 +76,6 @@ process.on("unhandledRejection", (reason, promise) => {
 /**
  * LOGIN TO THE DISCORD CLIENT
  */
-//client.login("") // Main Client
-client.login("") // Dev Client
+client.login(config.Discord.Tokens.main) // Main Client
+//client.login(config.Discord.Tokens.dev) // Dev Client
 
