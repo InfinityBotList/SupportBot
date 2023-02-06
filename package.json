@@ -1,0 +1,36 @@
+{
+    "name": "@infinity/support-bot",
+    "description": "Support Bot/Manager for Infinity Bot List",
+    "author": "Toxic Dev",
+    "version": "0.0.1",
+    "main": "src/handlers/client/index.js",
+    "license": "NO LICENSE",
+    "private": true,
+
+    "scripts": {
+        "prod": "node source/handlers/client/index.js",
+        "dev": "nodemon source/handlers/client/index.js"
+    },
+
+    "dependencies": {
+        "chalk": "^4.1.2",
+        "dotenv": "^16.0.3",
+        "discord.js": "^13.6.0",
+        "module-alias": "^2.2.2",
+        "mongoose": "^6.8.2",
+        "moment": "^2.29.4",
+        "moment-duration-format": "^2.3.2",
+        "parse-ms": "^3.0.0"
+    },
+
+    "devDependencies": {
+        "nodemon": "^2.0.20"
+    },
+
+    "_moduleAliases": {
+        "@root": ".",
+        "@handlers": "./source/handlers",
+        "@plugins": "./source/plugins",
+        "@configs": "./source/settings"
+    }
+}
