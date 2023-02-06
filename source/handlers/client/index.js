@@ -1,7 +1,7 @@
 require("module-alias/register");
 require("dotenv").config();
-
-const { Discord, Client, Collection, Intents } = require("discord.js");
+const Discord = require("discord.js");
+const { Client, Collection, Intents } = require("discord.js");
 
 const logger = require("@plugins/logger/index");
 const events = require("@handlers/events/index");
@@ -39,7 +39,7 @@ module.exports = client;
 /**
  * DEFINE CUSTOM CLIENT CALLS
  */
-client.Infinity = Discord;
+client.Infinity_Gateway = Discord;
 client.events = events;
 client.logger = logger;
 client.config = config;

@@ -1,5 +1,3 @@
-const { MessageEmbed, MessageSelectMenu, MessageButton, MessageActionRow } = require("discord.js");
-
 module.exports = {
     name: "ping",
     category: "Info",
@@ -10,7 +8,7 @@ module.exports = {
 
     run: async(message, args, client) => {
 
-        const ping = new MessageEmbed()
+        const ping = new client.Infinity_Gateway.MessageEmbed()
           .setTitle("Client Ping")
           .setColor(client.color)
           .setThumbnail(client.logo)

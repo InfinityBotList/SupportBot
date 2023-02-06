@@ -1,5 +1,3 @@
-const { MessageEmbed } = require("discord.js");
-
 module.exports = {
     name : "messageCreate",
 
@@ -14,7 +12,7 @@ module.exports = {
 
         if (message.content.match(mention)) {
 
-            const embed = new MessageEmbed()
+            const embed = new client.Infinity_Gateway.MessageEmbed()
               .setTitle("Getting Started")
               .setColor(client.color)
               .setThumbnail(client.logo)
@@ -22,7 +20,7 @@ module.exports = {
               .addFields(
                 {
                     name: "My prefix is",
-                    value: "``sup.`` or ``@Mention``",
+                    value: "``sup.``, ``@Mention`` or ``/``",
                     inline: true
                 },
                 {
@@ -56,7 +54,7 @@ module.exports = {
         
         if (!command) return;
 
-        const embedBuilder = new MessageEmbed()
+        const embedBuilder = new client.Infinity_Gateway.MessageEmbed()
          .setTitle("Error: Command execution failed")
          .setColor(client.color)
          .setThumbnail(client.logo)
