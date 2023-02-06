@@ -46,9 +46,13 @@ client.config = config;
 client.utils = utils;
 
 /**
- * DEFINE THE SLASH COMMANDS COLLECTION
+ * DEFINE THE CLIENT COLLECTIONS
  */
 client.slash = new Collection();
+client.commands = new Collection();
+client.aliases = new Collection();
+client.category = new Collection();
+client.limits = new Map();
 
 /**
  * CLIENT PROCESS LOGGER
