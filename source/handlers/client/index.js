@@ -3,7 +3,7 @@ require("dotenv").config();
 const Discord = require("discord.js");
 const { Client, Collection, Intents } = require("discord.js");
 
-const logger = require("@plugins/logger/index");
+const { log } = require("@plugins/logger/index");
 const events = require("@handlers/events/index");
 const config = require("@configs/main.config.js");
 const utils = require("@handlers/discord/presence");
@@ -41,7 +41,7 @@ module.exports = client;
  */
 client.Infinity_Gateway = Discord;
 client.events = events;
-client.logger = logger;
+client.logger = log;
 client.config = config;
 client.utils = utils;
 client.color = "#E9F535";
@@ -66,11 +66,17 @@ events.loadBase(client);
  * @private unhandledRejection
  */
 process.on("uncaughtException", (err) => {
-    logger.SendLogs(`[FATAL] Uncaught Exception: ${err}`, "error");
+    log(`Uncaught Exception: ${err}`, {
+        header: "FATAL ERROR",
+        type: "error"
+    });
 });
 
 process.on("unhandledRejection", (reason, promise) => {
-    logger.SendLogs(`[FATAL] Unhandled Rejection: ${reason.message}`, "error");
+    log(`Unhandled Rejection: ${reason.message}`, {
+        header: "FATAL ERROR",
+        type: "error"
+    });
 });
 
 /**

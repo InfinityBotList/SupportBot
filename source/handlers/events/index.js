@@ -16,9 +16,15 @@ const loadEvents = async function (client) {
             const event = require(`../../client/events/${folder}/${file}`);
 
             if (event.name) {
-                client.logger.SendLogs(`[EVENTS] Loaded event: [${folder}/${file}.js] Successfully`, "event");
+                client.logger(`Loaded event: [${event.name}] Successfully`, {
+                    header: "CLIENT EVENTS",
+                    type: "ready"
+                })
             } else { 
-                client.logger.SendLogs(`[EVENTS] Event load failed: [${folder}/${file}.js] is missing a file name or name is not a string`);
+                client.logger(`[EVENTS] Event: [${file}] is missing a name or name is not a string`, {
+                    header: "CLIENT EVENTS",
+                    type: "error"
+                });
 
                 continue;
             }
@@ -53,9 +59,15 @@ const loadSlash = async function(client) {
 
                 slash.push(command);
 
-                client.logger.SendLogs(`Loaded Command: [${folder}/${file}.js] successfully`, "cmd");
+                client.logger(`Loaded Command: [${command.name}] successfully`, {
+                    header: "SLASH COMMANDS",
+                    type: "slash"
+                })
             } else {
-                return client.logger.SendLogs(`Error Loading Command: [${folder}/${file}.js] is missing a name or the name is not a string!`);
+                return client.logger(`Error Loading Command: [${file}] is missing a name or name is not a valid string`, {
+                    header: "SLASH COMMANDS",
+                    type: "error"
+                })
             }
         }
     }
@@ -65,11 +77,15 @@ const loadSlash = async function(client) {
  */
     client.on("ready", async() => {
         client.application.commands.set(slash).then(() => {
-            
-            client.logger.SendLogs("Slash commands have been registered successfully", "ready");
+            client.logger("Slash command have been registered with the Discord API", {
+                header: "DISCORD APPLICATION REGISTRY",
+                type: "ready"
+            })
     }).catch((e) => {
-        
-        client.logger.SendLogs(`Failed to register slash commands: ${e.stack}`, "error");
+        client.logger(`Failed to register slash commands: ${e.stack}`, {
+            header: "DISCORD APPLICATION REGISTRY",
+            type: "warning"
+        })
     })
   })
 }
@@ -84,7 +100,10 @@ const loadBase = async function(client) {
         for (const file of commandFiles) {
             const command = require(`../../client/base/${dir}/${file}`);
 
-            client.logger.SendLogs(`Loading command: ${command.name}`, "cmd");
+            client.logger(`Loading command: ${command.name}`, {
+                header: "PREFIX COMMANDS",
+                type: "command"
+            })
 
             client.commands.set(command.name, command);
 
@@ -93,7 +112,10 @@ const loadBase = async function(client) {
                     client.aliases.set(command.aliases[i], command);
                 }
 
-                client.logger.SendLogs(`Loading command: ${command.name} with aliases: ${command.aliases}`);
+                client.logger(`Loading command: ${command.name} | Aliases: ${command.aliases}`, {
+                    header: "PREFIX COMMANDS",
+                    type: "command"
+                })
             }
         }
     })
