@@ -6,6 +6,7 @@ const { Client, Collection, Intents } = require("discord.js");
 const { log } = require("@plugins/logger/index");
 const events = require("@handlers/events/index");
 const config = require("@configs/main.config.js");
+const perms = require("@configs/perms.config.js");
 const utils = require("@handlers/discord/presence");
 
 /**
@@ -43,6 +44,7 @@ client.Infinity_Gateway = Discord;
 client.events = events;
 client.logger = log;
 client.config = config;
+client.perms = perms;
 client.utils = utils;
 client.color = "#E9F535";
 client.logo = "https://cdn.discordapp.com/attachments/653733403841134600/906287522068439080/imageedit_3_3710163012.png"
@@ -59,6 +61,7 @@ client.limits = new Map();
 
 events.loadEvents(client);
 events.loadBase(client);
+events.loadSlash(client);
 
 /**
  * CLIENT PROCESS LOGGER
