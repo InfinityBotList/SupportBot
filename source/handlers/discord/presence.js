@@ -8,11 +8,6 @@ module.exports.setClientPresence = async (client, presence) => {
      */
     let presences = [
         {
-            name: "infinitybots.gg",
-            type: "WATCHING",
-            url: ""
-        },
-        {
             name: "support.infinitybots.gg",
             type: "STREAMING",
             url: "https://twitch.tv/monstercat"

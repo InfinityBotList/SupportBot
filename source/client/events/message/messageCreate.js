@@ -20,12 +20,12 @@ module.exports = {
               .addFields(
                 {
                     name: "My prefix is",
-                    value: "``sup.``, ``@Mention`` or ``/``",
+                    value: "``en.`` or ``/``",
                     inline: true
                 },
                 {
                     name: "My help command",
-                    value: "``sup.help`` or ``@Infinity Support help``",
+                    value: "``en.help`` or ``/help``",
                     inline: true
                 }
               )
@@ -38,7 +38,7 @@ module.exports = {
         const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
         const prefixRegex = new RegExp(
-            `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`,
+            `^(${escapeRegex(prefix)})\\s*`,
         );
 
         if (!prefixRegex.test(message.content)) return;

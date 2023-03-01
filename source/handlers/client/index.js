@@ -47,7 +47,7 @@ client.config = config;
 client.perms = perms;
 client.utils = utils;
 client.color = "#E9F535";
-client.logo = "https://cdn.discordapp.com/attachments/653733403841134600/906287522068439080/imageedit_3_3710163012.png"
+client.logo = "https://cdn.discordapp.com/attachments/653733403841134600/1080274893817516092/imageedit_3_7683493236.png"
 client.footer = "v0.0.1 • © Copyright 2023 - Infinity Development"
 
 /**
