@@ -46,9 +46,11 @@ client.logger = log;
 client.config = config;
 client.perms = perms;
 client.utils = utils;
-client.color = "#E9F535";
-client.logo = "https://cdn.discordapp.com/attachments/653733403841134600/1080274893817516092/imageedit_3_7683493236.png"
-client.footer = "v0.0.1 • © Copyright 2023 - Infinity Development"
+client.color = "#8A6AFD";
+client.logo = "https://cdn.discordapp.com/attachments/653733403841134600/1086513475888611410/system.png"
+client.glogo = "https://cdn.discordapp.com/attachments/653733403841134600/1080379676922490880/Infin2.png"
+client.glogo2 = "https://cdn.discordapp.com/attachments/653733403841134600/1080379677186728026/imageedit_9_8322985005.png" 
+client.footer = "© Copyright 2020 - Infinity Development"
 
 /**
  * DEFINE THE CLIENT COLLECTIONS

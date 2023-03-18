@@ -20,12 +20,12 @@ module.exports = {
               .addFields(
                 {
                     name: "My prefix is",
-                    value: "``en.`` or ``/``",
+                    value: "``<<`` or ``/``",
                     inline: true
                 },
                 {
                     name: "My help command",
-                    value: "``en.help`` or ``/help``",
+                    value: "``<<help`` or ``/help``",
                     inline: true
                 }
               )
