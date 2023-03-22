@@ -1,3 +1,6 @@
+const { SendHelpEmbed } = require("@handlers/embeds/helpEmbeds");
+const { SendCmdHelpEmbed } = require("@handlers/embeds/cmdHelpEmbed");
+
 module.exports = {
     name: "help",
     category: "Info",
@@ -6,80 +9,33 @@ module.exports = {
     aliases: [],
     permissions: [],
 
-    run: async(message, interaction, client) => {
+    run: async(message, args, client) => {
 
+      if (args[0] && client.commands.get(args[0])) {
 
-        const base = new client.Infinity_Gateway.MessageEmbed()
-          .setTitle('Help Message')
-          .setColor(client.color)
-          .setThumbnail(client.logo)
-          .setDescription('Feeling lost? you can find some basic usage info here. You can also check out the support articles below!')
-          .setTimestamp()
-          .setFooter({ text: client.footer, iconURL: client.logo })
+        const cmd = client.commands.get(args[0]);
+        let cmdName = cmd.name.charAt(0).toUpperCase() + cmd.name.slice(1);
 
-        const info = new client.Infinity_Gateway.MessageEmbed()
-          .setTitle('Info Commands')
-          .setColor(client.color)
-          .setThumbnail(client.logo)
-          .setDescription("**PLEASE NOTE:** These commands are prefix based!")
-          .addFields(
-            {
-                name: "<<help",
-                value: "Displays this help message and usage info",
-                inline: true
-            },
-            {
-                name: "<<ping",
-                value: "Show the bots latency and response time",
-                inline: true
-            }
-          )
-          .setTimestamp()
-          .setFooter({ text: client.footer, iconURL: client.logo })
+        let aliases = "No alias(es) available";
 
-        const about = new client.Infinity_Gateway.MessageEmbed()
-          .setTitle('About Commands')
-          .setColor(client.color)
-          .setThumbnail(client.logo)
-          .setDescription("**PLEASE NOTE:** These commands are prefix based!")
-          .addFields(
-            {
-              name: "<<links",
-              value: "Displays a list of our useful links",
-              inline: true
-            },
-            {
-              name: "<<support",
-              value: "Some of our useful help desk links",
-              inline: true
-            }
-          )
-          .setTimestamp()
-          .setFooter({ text: client.footer, iconURL: client.logo });
+        if (cmd.aliases.length === 0) {
+          aliases = "No alias(es) available";
+        } else {
+          aliases = cmd.aliases.join(" , ");
+        }
 
-        const mods = new client.Infinity_Gateway.MessageEmbed()
-          .setTitle('Moderation Commands')
-          .setColor(client.color)
-          .setThumbnail(client.logo)
-          .setDescription("**PLEASE NOTE:** These commands are prefix based!")
-          .addFields(
-            {
-              name: "<<ban",
-              value: "Ban a member from the server",
-              inline: true
-            },
-            {
-              name: "<<unban",
-              value: "Unban a member from the server",
-              inline: true
-            }
-          )
-          .setTimestamp()
-          .setFooter({ text: client.footer, iconURL: client.logo });
+        return message.channel.send({ 
+          embeds: [(await SendCmdHelpEmbed({ 
+            client: client,
+            cmdDescription: cmd.description,
+            cmdCategory: cmd.category,
+            cmdName: cmdName,
+            aliases: aliases
+          }))] 
+        })
+      
+      } else {
 
-          /**
-           * INTERACTIONS AND SELECT MENU
-           */
           const components = (state) => [
             new client.Infinity_Gateway.MessageActionRow().addComponents(
                 new client.Infinity_Gateway.MessageSelectMenu()
@@ -104,12 +60,21 @@ module.exports = {
                         value: "mods",
                         description: "View all the Moderation Commands",
                         emoji: "⚜️"
-                    }
+                    },
+                    {
+                      label: "Administration Commands",
+                      value: "admin",
+                      description: "View all the Admin Commands",
+                      emoji: "👑"
+                  }
                 ])
             ),
           ];
 
-          const initialMessage = await message.reply({ embeds: [base], components: components(false)});
+          const initialMessage = await message.reply({ embeds: 
+            [(await SendHelpEmbed({ name: 'base', client: client }))], 
+            components: components(false)
+          });
 
           const collector = message.channel.createMessageComponentCollector({
             componentType: "SELECT_MENU",
@@ -117,13 +82,15 @@ module.exports = {
             dispose: true
           });
 
-          collector.on("collect", (interaction) => {
+          collector.on("collect", async (interaction) => {
             if (interaction.values[0] === "info") {
-                interaction.update({ embeds: [info], components: components(false) }).catch(() => {});
+                interaction.update({ embeds: [(await SendHelpEmbed({ name: 'info', client: client }))], components: components(false) }).catch(() => {});
             } else if (interaction.values[0] === "about") {
-              interaction.update({ embeds: [about], components: components(false) }).catch(() => {});
+              interaction.update({ embeds: [(await SendHelpEmbed({ name: 'about', client: client }))], components: components(false) }).catch(() => {});
             } else if (interaction.values[0] === "mods") {
-              interaction.update({ embeds: [mods], components: components(false)}).catch(() => {});
+              interaction.update({ embeds: [(await SendHelpEmbed({ name: 'mods', client: client }))], components: components(false)}).catch(() => {});
+            } else if (interaction.values[0] === 'admin') {
+              interaction.update({ embeds: [(await SendHelpEmbed({ name: 'admin', client: client }))], components: components(false)}).catch(() => {});
             }
           })
 
@@ -140,5 +107,6 @@ module.exports = {
                 });
             }
           });
+        }
     }
 }

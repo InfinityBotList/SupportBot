@@ -7,7 +7,7 @@ module.exports = {
     async execute(client) {
 
         await MongoClient({ connectionURL: client.config.Database.mongo })
-        
+ 
         await client.logger("Connecting to the Discord API...", {
             header: "CLIENT START-UP",
             type: "start"

@@ -1,10 +1,12 @@
 module.exports = {
     name: "grules",
-    category: "Guild",
+    category: "Admin",
     disabled: false,
     description: "Post the rules channel embed",
     aliases: [],
-    permissions: [],
+    permissions: [
+      "ADMINISTRATOR"
+    ],
 
     run: async(message, args, client) => {
       

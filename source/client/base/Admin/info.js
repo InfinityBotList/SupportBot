@@ -1,10 +1,12 @@
 module.exports = {
     name: "ginfo",
-    category: "Guild",
+    category: "Admin",
     disabled: false,
     description: "Post the info channel embed",
     aliases: [],
-    permissions: [],
+    permissions: [
+        "ADMINISTRATOR"
+    ],
 
     run: async(message, args, client) => {
       

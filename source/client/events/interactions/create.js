@@ -5,6 +5,8 @@ module.exports = {
 
         if (!interaction.isCommand()) return;
 
+        client.interaction = interaction;
+
         const command = client.slash.get(interaction.commandName);
 
         if (!command) return interaction.reply({ content: 'Command not found!' });
