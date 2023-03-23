@@ -1,6 +1,6 @@
 /**
  * CUSTOM CONSOLE LOGGER
- * 
+ *
  * Copyright: Ⓒ 2023 - Toxic Dev
  */
 
@@ -18,7 +18,7 @@ const TYPES = {
   router: "router",
   client: "client",
   start: "start",
-  slash: "slash"
+  slash: "slash",
 };
 
 const COLORS = {
@@ -40,7 +40,7 @@ const COLORS = {
   },
   [TYPES.debug]: {
     text: chalk.gray,
-    background: chalk.black.bgGray
+    background: chalk.black.bgGray,
   },
   [TYPES.command]: {
     text: chalk.cyan,
@@ -52,63 +52,67 @@ const COLORS = {
   },
   [TYPES.event]: {
     text: chalk.white,
-    background: chalk.black.bgWhite
+    background: chalk.black.bgWhite,
   },
   [TYPES.ready]: {
     text: chalk.greenBright,
-    background: chalk.black.bgGreenBright
+    background: chalk.black.bgGreenBright,
   },
   [TYPES.router]: {
     text: chalk.blueBright,
-    background: chalk.black.bgBlueBright
+    background: chalk.black.bgBlueBright,
   },
   [TYPES.client]: {
     text: chalk.redBright,
-    background: chalk.black.bgRedBright
+    background: chalk.black.bgRedBright,
   },
   [TYPES.start]: {
     text: chalk.yellowBright,
-    background: chalk.black.bgYellowBright
-  }
+    background: chalk.black.bgYellowBright,
+  },
 };
 
 /**
  * CUSTOM CONSOLE LOGGER
- * 
+ *
  * @default log The logger "client"
  * @default message The logger message/content
  * @default TYPES The logger types (defined above)
  * @default COLORS The logger colors (for text and header)
- * 
+ *
  */
-const log = ( message = "", {
-  header: initialHeader = "", 
-  delimitor = "=",
-  type = TYPES.info
-} = {
-  header: "",
-  delimitor: "=",
-  type: TYPES.info
-}) => {
+const log = (
+  message = "",
+  { header: initialHeader = "", delimitor = "=", type = TYPES.info } = {
+    header: "",
+    delimitor: "=",
+    type: TYPES.info,
+  }
+) => {
   let transformedMessage = message;
 
-  const messageLength = transformedMessage.length % 2 === 0
-  ?transformedMessage.length 
-  : transformedMessage.length + 1;
-  
+  const messageLength =
+    transformedMessage.length % 2 === 0
+      ? transformedMessage.length
+      : transformedMessage.length + 1;
+
   const minStringLength = 80;
 
   if (messageLength < minStringLength) {
     transformedMessage = transformedMessage
-    .padStart(minStringLength / 2 + message.length / 2, " ")
-    .padEnd(minStringLength, " ");
+      .padStart(minStringLength / 2 + message.length / 2, " ")
+      .padEnd(minStringLength, " ");
   }
 
   const paddedHeader = initialHeader ? `${initialHeader}` : "";
 
   const header = paddedHeader
-  .padStart(Math.floor((minStringLength - paddedHeader.length) / 2) + paddedHeader.length, delimitor)
-  .padEnd(minStringLength, delimitor);
+    .padStart(
+      Math.floor((minStringLength - paddedHeader.length) / 2) +
+        paddedHeader.length,
+      delimitor
+    )
+    .padEnd(minStringLength, delimitor);
 
   const footer = "".padStart(header.length, delimitor);
 
