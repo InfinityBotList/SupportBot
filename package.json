@@ -8,7 +8,7 @@
     "private": true,
 
     "scripts": {
-        "prod": "node source/handlers/client/index.js",
+        "start": "node source/handlers/client/index.js",
         "dev": "nodemon source/handlers/client/index.js"
     },
 
