@@ -36,11 +36,21 @@ module.exports = {
          .setTimestamp()
          .setFooter({ text: client.footer, iconURL: client.logo })
 
+        let KickFail2 = new client.Infinity_Gateway.MessageEmbed()
+         .setTitle("ERROR: Why would you even!")
+         .setColor(client.color)
+         .setThumbnail(client.logo)
+         .setDescription("You can not just kick yourself noob")
+         .setTimestamp()
+         .setFooter({ text: client.footer, iconURL: client.logo })
+
         if (!user) return message.channel.send({ embeds: [NoUser] });
 
         let reason = args.slice(1).join(" ");
 
         if (!reason) return message.channel.send({ embeds: [NoReason] }); 
+
+        if (user.id == message.author.id) return message.channel.send({ embeds: [KickFail2] });
 
         if (!user.kickable) return message.channel.send({ embeds: [KickFail] });
 

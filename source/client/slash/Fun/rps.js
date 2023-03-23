@@ -1,13 +1,13 @@
 module.exports = {
-    name: 'coinflip',
+    name: 'rps',
     category: 'Fun',
-    description: 'Flip a coin! Can you win?',
+    description: 'Rock paper scissors',
     userPerms: ['none'],
     basePerms: ['none'],
     options: [
         {
             name: 'choice',
-            description: 'Heads or Tails',
+            description: 'Rock, Paper or Scissors',
             type: 3,
             required: true
         },
@@ -15,7 +15,7 @@ module.exports = {
 
     run: async(client, interaction) => {
 
-        var options = ['heads', 'tails'];
+        var options = ['rock', 'paper', 'scissors'];
         var choice = await interaction.options.getString("choice");
 
         var result = options[Math.floor(Math.random() * options.length)];
@@ -26,7 +26,7 @@ module.exports = {
         else status = "You win! GG" 
 
         let embed = new client.Infinity_Gateway.MessageEmbed()
-         .setTitle("Coin Flip Results")
+         .setTitle("RPS Results")
          .setColor(client.color)
          .setThumbnail(client.logo)
          .addFields(
@@ -36,7 +36,7 @@ module.exports = {
                 inline: true
             },
             {
-                name: "Coin Landed On",
+                name: "Enfinity Chose",
                 value: `${result}`,
                 inline: true
             },

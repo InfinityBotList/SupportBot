@@ -2,7 +2,7 @@
     "name": "@infinity/support-bot",
     "description": "Support Bot/Manager for Infinity Bot List",
     "author": "Toxic Dev",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "main": "source/handlers/client/index.js",
     "license": "NO LICENSE",
     "private": true,

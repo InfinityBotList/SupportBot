@@ -14,4 +14,4 @@ Self hosting is not supported/recommended
 ---
 
 ### License
-> This source code uses a no license all rights are reserved and this repo is public strictly for educational purposes!
+> This source code uses a no license all rights are reserved and this repo is public strictly for educational purposes and contributions!
