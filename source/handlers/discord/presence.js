@@ -7,7 +7,7 @@ module.exports.setClientPresence = async (client, presence) => {
    */
   let presences = [
     {
-      name: "<<help || <<help <CmdName>",
+      name: "Help: <<help",
       type: "PLAYING",
       url: "",
     },
