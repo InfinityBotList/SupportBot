@@ -26,5 +26,4 @@ module.exports.SendCmdHelpEmbed = async ({ client, cmdCategory, cmdName, cmdDesc
          .setFooter({ text: client.footer, iconURL: client.logo })
 
         return embed;
-
 }

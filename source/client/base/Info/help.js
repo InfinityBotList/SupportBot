@@ -5,7 +5,7 @@ module.exports = {
     name: "help",
     category: "Info",
     disabled: false,
-    description: "Help Message and Commands",
+    description: "View our help message or get command info",
     aliases: [],
     permissions: [],
 
