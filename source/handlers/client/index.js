@@ -92,4 +92,3 @@ process.on("unhandledRejection", (reason, promise) => {
  */
 client.login(config.Discord.Tokens.main); // Main Client
 //client.login(config.Discord.Tokens.dev); // Dev Client
-
