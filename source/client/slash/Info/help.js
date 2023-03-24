@@ -70,8 +70,8 @@ module.exports = {
                 label: "User Commands",
                 value: "users",
                 description: "View all the User Commands",
-                emoji: "🧘‍♂️"
-              }
+                emoji: "🧘‍♂️",
+              },
             ])
         ),
       ];
@@ -125,13 +125,12 @@ module.exports = {
             })
             .catch(() => {});
         } else if (interaction.values[0] === "users") {
-          interaction
-           .update({
-             embeds: [
+          interaction.update({
+            embeds: [
               await SendSlashHelpEmbed({ name: "users", client: client }),
-             ],
-             components: components(false)
-           })
+            ],
+            components: components(false),
+          });
         }
       });
 
