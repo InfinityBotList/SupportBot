@@ -66,6 +66,12 @@ module.exports = {
                 description: "View all the Fun Commands",
                 emoji: "🎮",
               },
+              {
+                label: "User Commands",
+                value: "users",
+                description: "View all the User Commands",
+                emoji: "🧘‍♂️"
+              }
             ])
         ),
       ];
@@ -118,6 +124,14 @@ module.exports = {
               components: components(false),
             })
             .catch(() => {});
+        } else if (interaction.values[0] === "users") {
+          interaction
+           .update({
+             embeds: [
+              await SendSlashHelpEmbed({ name: "users", client: client }),
+             ],
+             components: components(false)
+           })
         }
       });
 

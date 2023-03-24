@@ -79,7 +79,27 @@ module.exports.SendSlashHelpEmbed = async ({ name, client }) => {
       .setFooter({ text: client.footer, iconURL: client.logo });
 
     return embed;
+  } else if (name == 'users') {
+
+    const embed = new client.Infinity_Gateway.MessageEmbed()
+      .setTitle("User Commands")
+      .setColor(client.color)
+      .setThumbnail(client.logo)
+      .setDescription(
+        "**PLEASE NOTE:** You can get command specific info using `/help <CommandName>`"
+      )
+      .addFields({
+        name: "Available Commands",
+        value: `${await filterSlash({ client: client, category: "Users" })}`,
+        inline: true,
+      })
+      .setTimestamp()
+      .setFooter({ text: client.footer, iconURL: client.logo });
+
+    return embed;
+
   } else {
+
     return console.log("No embed name provided or name is invalid!");
   }
 };

@@ -2,7 +2,7 @@ module.exports = {
   name: "unban",
   category: "Mods",
   description: "UnBan a member from the server",
-  userPerms: ["none"],
+  userPerms: ["BAN_MEMBERS"],
   basePerms: ["BAN_MEMBERS"],
   options: [
     {

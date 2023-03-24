@@ -52,7 +52,7 @@ module.exports = {
         },
         {
           name: "Blog",
-          value: "[blog.botlist.app](https://blog.botlist.app)",
+          value: "[infinitybots.gg/blog](https://infinitybots.gg/blog)",
           inline: true,
         },
         {
@@ -63,7 +63,7 @@ module.exports = {
         },
         {
           name: "Support",
-          value: "[support.infinitybots.gg](https://support.infinitybots.gg)",
+          value: "[infinitybots.gg/help](https://infinitybots.gg/help)",
           inline: true,
         }
       )

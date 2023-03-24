@@ -2,7 +2,7 @@ module.exports = {
   name: "kick",
   category: "Mods",
   description: "Kick a member from the server",
-  userPerms: ["none"],
+  userPerms: ["KICK_MEMBERS"],
   basePerms: ["KICK_MEMBERS"],
   options: [
     {

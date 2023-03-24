@@ -2,7 +2,7 @@ module.exports = {
   name: "ban",
   category: "Mods",
   description: "Ban a member from the server",
-  userPerms: ["none"],
+  userPerms: ["BAN_MEMBERS"],
   basePerms: ["BAN_MEMBERS"],
   options: [
     {
