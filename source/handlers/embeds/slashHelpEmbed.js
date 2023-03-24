@@ -79,8 +79,7 @@ module.exports.SendSlashHelpEmbed = async ({ name, client }) => {
       .setFooter({ text: client.footer, iconURL: client.logo });
 
     return embed;
-  } else if (name == 'users') {
-
+  } else if (name == "users") {
     const embed = new client.Infinity_Gateway.MessageEmbed()
       .setTitle("User Commands")
       .setColor(client.color)
@@ -97,9 +96,7 @@ module.exports.SendSlashHelpEmbed = async ({ name, client }) => {
       .setFooter({ text: client.footer, iconURL: client.logo });
 
     return embed;
-
   } else {
-
     return console.log("No embed name provided or name is invalid!");
   }
 };
