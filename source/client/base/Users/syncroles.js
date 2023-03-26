@@ -43,7 +43,7 @@ module.exports = {
         if (member.roles.cache.has(role.id))
           return message.reply({ embeds: [embed3] });
 
-          member.roles.add(role.id);
+        member.roles.add(role.id);
 
         let embed4 = new client.Infinity_Gateway.MessageEmbed()
           .setTitle("SUCCESS: Role added")
