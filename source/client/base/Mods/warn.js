@@ -59,13 +59,12 @@ module.exports = {
       .setTitle("You wish man!")
       .setColor("RED")
       .setThumbnail(client.logo)
-      .setDescription(
-        "This person is immune to your shenanigans"
-      )
+      .setDescription("This person is immune to your shenanigans")
       .setTimestamp()
       .setFooter({ text: client.footer, iconURL: client.logo });
 
-    if (member.user.id === message.author.id) return message.reply({ embeds: [self_warn] });
+    if (member.user.id === message.author.id)
+      return message.reply({ embeds: [self_warn] });
     if (member.user.bot) return message.reply({ embeds: [bot_warn] });
     if (!member.kickable) return message.reply({ embeds: [perms] });
 

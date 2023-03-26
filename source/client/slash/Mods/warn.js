@@ -52,9 +52,7 @@ module.exports = {
       .setTitle("You wish man!")
       .setColor(client.color)
       .setThumbnail(client.logo)
-      .setDescription(
-        "This person is immune to your shenanigans"
-      )
+      .setDescription("This person is immune to your shenanigans")
       .setTimestamp()
       .setFooter({ text: client.footer, iconURL: client.logo });
 
