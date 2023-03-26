@@ -44,7 +44,7 @@ module.exports = {
           return message.reply({ embeds: [embed3] });
 
         let embed4 = new client.Infinity_Gateway.MessageEmbed()
-          .setTitle("ERROR: Role exists")
+          .setTitle("SUCCESS: Role added")
           .setColor("RED")
           .setThumbnail(member.displayAvatarURL({ dynamic: true }))
           .setDescription(`${role} has been added to ${member.user.tag}`)

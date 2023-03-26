@@ -8,6 +8,12 @@ module.exports = {
   Database: {
     mongo: process.env.MONGO_STRING,
   },
+  Channels: {
+    audits: "audit-logs"
+  },
+  Roles: {
+    pending: "870952645811134478"
+  },
   Client: {
     ID: "818419115068751892",
     Commands: {
