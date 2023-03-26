@@ -55,8 +55,19 @@ module.exports = {
       .setTimestamp()
       .setFooter({ text: client.footer, iconURL: client.logo });
 
-    if (member == message.author) return message.reply({ embeds: [self_warn] });
+    let perms = new client.Infinity_Gateway.MessageEmbed()
+      .setTitle("You wish man!")
+      .setColor("RED")
+      .setThumbnail(client.logo)
+      .setDescription(
+        "This person is immune to your shenanigans"
+      )
+      .setTimestamp()
+      .setFooter({ text: client.footer, iconURL: client.logo });
+
+    if (member.user.id === message.author.id) return message.reply({ embeds: [self_warn] });
     if (member.user.bot) return message.reply({ embeds: [bot_warn] });
+    if (!member.kickable) return message.reply({ embeds: [perms] });
 
     if (cases && cases.length == 3) {
       let embed = new client.Infinity_Gateway.MessageEmbed()

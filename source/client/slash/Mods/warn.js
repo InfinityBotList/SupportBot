@@ -48,11 +48,23 @@ module.exports = {
       .setTimestamp()
       .setFooter({ text: client.footer, iconURL: client.logo });
 
+    let perms = new client.Infinity_Gateway.MessageEmbed()
+      .setTitle("You wish man!")
+      .setColor(client.color)
+      .setThumbnail(client.logo)
+      .setDescription(
+        "This person is immune to your shenanigans"
+      )
+      .setTimestamp()
+      .setFooter({ text: client.footer, iconURL: client.logo });
+
     if (member == interaction.member)
       return interaction.reply({ embeds: [SelfWarn], ephemeral: true });
 
     if (member.user.bot)
       return interaction.reply({ embeds: [BotWarn], ephemeral: true });
+
+    if (!member.kickable) return interaction.reply({ embeds: [perms] });
 
     if (cases && cases.length == 3) {
       let embed = new client.Infinity_Gateway.MessageEmbed()
