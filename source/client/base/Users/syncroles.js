@@ -27,7 +27,7 @@ module.exports = {
 
     await url
       .get(`https://spider.infinitybots.gg/bots/${member.user.id}`)
-      .then(async (body) => {
+      .then(async (req) => {
         let role = await message.guild.roles.cache.find(
           (c) => c.id === "870952645811134478"
         );
@@ -42,6 +42,8 @@ module.exports = {
 
         if (member.roles.cache.has(role.id))
           return message.reply({ embeds: [embed3] });
+
+          member.roles.add(role.id);
 
         let embed4 = new client.Infinity_Gateway.MessageEmbed()
           .setTitle("SUCCESS: Role added")

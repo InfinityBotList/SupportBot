@@ -84,10 +84,9 @@ module.exports = {
 
         await url
           .get(`https://spider.infinitybots.gg/bots/${member.user.id}`)
-          .then(async (body) => {
-            console.log(body);
+          .then(async (req) => {
 
-            if (body.type == "pending") {
+            if (req.body.type == "pending") {
               let r = await member.guild.roles.cache.find(
                 (r) => r.id === "870952645811134478"
               );
@@ -126,7 +125,7 @@ module.exports = {
 
                 return chan.send({ content: `${staff}`, embeds: [embed] });
               }
-            } else if (body.type !== "pending") {
+            } else if (req.body.type !== "pending") {
               let chan = await member.guild.channels.cache.find(
                 (c) => c.id === "870952646788390918"
               );
