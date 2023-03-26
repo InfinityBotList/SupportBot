@@ -53,7 +53,7 @@ module.exports = {
           .setFooter({ text: client.footer, iconURL: client.logo })
 
           if (member == message.author) return message.reply({ embeds: [self_warn]})
-          if (member.bot) return message.reply({ embeds: [bot_warn] });
+          if (member.user.bot) return message.reply({ embeds: [bot_warn] });
 
           if (cases && cases.length == 3) {
 
