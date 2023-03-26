@@ -85,7 +85,7 @@ module.exports = {
         await url
           .get(`https://spider.infinitybots.gg/bots/${member.user.id}`)
           .then(async (body) => {
-            console.log(body)
+            console.log(body);
 
             if (body.type == "pending") {
               let r = await member.guild.roles.cache.find(
