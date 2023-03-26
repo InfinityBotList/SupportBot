@@ -28,7 +28,7 @@ const client = new Client({
   ],
   partials: ["CHANNEL", "REACTION", "GUILD_MEMBER", "MESSAGE", "USER"],
   allowedMentions: {
-    repliedUser: true
+    repliedUser: true,
   },
 });
 

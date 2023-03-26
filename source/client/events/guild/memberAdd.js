@@ -82,54 +82,71 @@ module.exports = {
 
         if (!member.user.bot) return chan.send({ embeds: [embed] });
 
-        await url.get(
-          `https://spider.infinitybots.gg/bots/${member.user.id}`
-        ).then(async (body) => {
+        await url
+          .get(`https://spider.infinitybots.gg/bots/${member.user.id}`)
+          .then(async (body) => {
+            if (body.type === "pending") {
+              let r = await member.guild.roles.cache.find(
+                (r) => r.id === "870952645811134478"
+              );
+              let chan = await member.guild.channels.cache.find(
+                (c) => c.id === "870952646788390918"
+              );
 
-          if (body.type === "pending") {
-            let r = await member.guild.roles.cache.find(
-              (r) => r.id === "870952645811134478"
-            );
-            let chan = await member.guild.channels.cache.find(
-              (c) => c.id === "870952646788390918"
-            );
-  
-            try {
-              await member.roles.add(r);
-  
+              try {
+                await member.roles.add(r);
+
+                let embed = new client.Infinity_Gateway.MessageEmbed()
+                  .setTitle("New Bot Joined")
+                  .setColor(client.color)
+                  .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
+                  .setDescription(
+                    `${member.user.tag} is currently in queue so i have applied the ${r} role`
+                  )
+                  .setTimestamp()
+                  .setFooter({ text: client.footer, iconURL: client.logo });
+
+                return chan.send({ content: `${staff}`, embeds: [embed] });
+              } catch (err) {
+                let embed = new client.Infinity_Gateway.MessageEmbed()
+                  .setTitle("New Bot Joined")
+                  .setColor(client.color)
+                  .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
+                  .setDescription(
+                    `${member.user.tag} is currently in queue but for some reason i was unable to apply the ${r} role`
+                  )
+                  .addFields({
+                    name: "Steps to fix",
+                    value: "Run the `<<syncroles` command",
+                  })
+                  .setTimestamp()
+                  .setFooter({ text: client.footer, iconURL: client.logo });
+
+                return chan.send({ content: `${staff}`, embeds: [embed] });
+              }
+            } else if (body.type !== "pending") {
+              let chan = await member.guild.channels.cache.find(
+                (c) => c.id === "870952646788390918"
+              );
+
               let embed = new client.Infinity_Gateway.MessageEmbed()
                 .setTitle("New Bot Joined")
                 .setColor(client.color)
                 .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
                 .setDescription(
-                  `${member.user.tag} is currently in queue so i have applied the ${r} role`
+                  `${member.user.tag} is not currently pending approval or not listed on our site!`
                 )
                 .setTimestamp()
                 .setFooter({ text: client.footer, iconURL: client.logo });
-  
-              return chan.send({ content: `${staff}`, embeds: [embed] });
-            } catch (err) {
-              let embed = new client.Infinity_Gateway.MessageEmbed()
-                .setTitle("New Bot Joined")
-                .setColor(client.color)
-                .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
-                .setDescription(
-                  `${member.user.tag} is currently in queue but for some reason i was unable to apply the ${r} role`
-                )
-                .addFields({
-                  name: "Steps to fix",
-                  value: "Run the `<<syncroles` command",
-                })
-                .setTimestamp()
-                .setFooter({ text: client.footer, iconURL: client.logo });
-  
-              return chan.send({ content: `${staff}`, embeds: [embed] });
+
+              return chan.send({ embeds: [embed] });
             }
-          } else if (body.type !== "pending") {
+          })
+          .catch(async () => {
             let chan = await member.guild.channels.cache.find(
               (c) => c.id === "870952646788390918"
             );
-  
+
             let embed = new client.Infinity_Gateway.MessageEmbed()
               .setTitle("New Bot Joined")
               .setColor(client.color)
@@ -139,29 +156,9 @@ module.exports = {
               )
               .setTimestamp()
               .setFooter({ text: client.footer, iconURL: client.logo });
-  
+
             return chan.send({ embeds: [embed] });
-          }
-          
-        }).catch(async () => {
-
-          let chan = await member.guild.channels.cache.find(
-            (c) => c.id === "870952646788390918"
-          );
-
-          let embed = new client.Infinity_Gateway.MessageEmbed()
-            .setTitle("New Bot Joined")
-            .setColor(client.color)
-            .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
-            .setDescription(
-              `${member.user.tag} is not currently pending approval or not listed on our site!`
-            )
-            .setTimestamp()
-            .setFooter({ text: client.footer, iconURL: client.logo });
-
-          return chan.send({ embeds: [embed] });
-
-        });
+          });
       }
     } catch (err) {
       return console.log(err.stack);
