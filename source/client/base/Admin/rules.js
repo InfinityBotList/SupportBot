@@ -175,7 +175,7 @@ module.exports = {
         {
           name: " ∞  Any and all music bots. ",
           value:
-            "Music bots that allow playback through YouTube are classified as API Abuse/Pirating Music and will be denied verification from discord meaning you will not be able to grow your bot past 100 servers and you could face a copyright strike. We will no longer deny your bot for this but please use YouTube at your own discretion",
+            "Bots who provide music through YouTube will no longer be accepted in our list as it violates both the YouTube Terms of Service and Discord Terms of Service.",
         }
       )
       .setTimestamp()
