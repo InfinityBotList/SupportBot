@@ -33,44 +33,44 @@ module.exports = {
           }),
         ],
       });
-      
     } else {
-
       let embed = new client.Infinity_Gateway.MessageEmbed()
         .setTitle("Available Commands")
         .setColor(client.color)
         .setThumbnail(client.logo)
-        .setDescription("NOTE: use `<<help <cmdName>` to get Command Specific Help")
+        .setDescription(
+          "NOTE: use `<<help <cmdName>` to get Command Specific Help"
+        )
         .addFields(
           {
             name: "Admin",
-            value: (await filterCommands({ client: client, category: "Admin" }))
+            value: await filterCommands({ client: client, category: "Admin" }),
           },
           {
             name: "About",
-            value: (await filterCommands({ client: client, category: "About" }))
+            value: await filterCommands({ client: client, category: "About" }),
           },
           {
             name: "Info",
-            value: (await filterCommands({ client: client, category: "Info" }))
+            value: await filterCommands({ client: client, category: "Info" }),
           },
           {
             name: "Fun",
-            value: (await filterCommands({ client: client, category: "Fun"}))
+            value: await filterCommands({ client: client, category: "Fun" }),
           },
           {
             name: "Moderation",
-            value: (await filterCommands({ client: client, category: "Mods" }))
+            value: await filterCommands({ client: client, category: "Mods" }),
           },
           {
             name: "Users",
-            value: (await filterCommands({ client: client, category: "Users" }))
+            value: await filterCommands({ client: client, category: "Users" }),
           }
         )
         .setTimestamp()
-        .setFooter({ text: client.footer, iconURL: client.logo })
+        .setFooter({ text: client.footer, iconURL: client.logo });
 
-        return message.channel.send({ embeds: [embed] });
+      return message.channel.send({ embeds: [embed] });
     }
   },
 };
