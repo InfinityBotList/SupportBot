@@ -81,7 +81,7 @@ process.on("uncaughtException", (err) => {
 });
 
 process.on("unhandledRejection", (reason, promise) => {
-  log(`Unhandled Rejection: ${reason.message}`, {
+  log(`Unhandled Rejection: ${reason.stack}`, {
     header: "FATAL ERROR",
     type: "error",
   });

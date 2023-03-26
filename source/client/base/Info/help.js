@@ -1,5 +1,5 @@
-const { SendHelpEmbed } = require("@handlers/embeds/helpEmbeds");
 const { SendCmdHelpEmbed } = require("@handlers/embeds/cmdHelpEmbed");
+const { filterCommands } = require("@plugins/filters/commands");
 
 module.exports = {
   name: "help",
@@ -33,98 +33,44 @@ module.exports = {
           }),
         ],
       });
+      
     } else {
-      const components = (state) => [
-        new client.Infinity_Gateway.MessageActionRow().addComponents(
-          new client.Infinity_Gateway.MessageSelectMenu()
-            .setCustomId("help-menu")
-            .setPlaceholder("Select a command category")
-            .setDisabled(state)
-            .addOptions([
-              {
-                label: "Info Commands",
-                value: "info",
-                description: "View all the Info Commands",
-                emoji: "📌",
-              },
-              {
-                label: "About Commands",
-                value: "about",
-                description: "View all the About Commands",
-                emoji: "🎇",
-              },
-              {
-                label: "Moderation Commands",
-                value: "mods",
-                description: "View all the Moderation Commands",
-                emoji: "⚜️",
-              },
-              {
-                label: "Administration Commands",
-                value: "admin",
-                description: "View all the Admin Commands",
-                emoji: "👑",
-              },
-            ])
-        ),
-      ];
 
-      const initialMessage = await message.reply({
-        embeds: [await SendHelpEmbed({ name: "base", client: client })],
-        components: components(false),
-      });
+      let embed = new client.Infinity_Gateway.MessageEmbed()
+        .setTitle("Available Commands")
+        .setColor(client.color)
+        .setThumbnail(client.logo)
+        .setDescription("NOTE: use `<<help <cmdName>` to get Command Specific Help")
+        .addFields(
+          {
+            name: "Admin",
+            value: (await filterCommands({ client: client, category: "Admin" }))
+          },
+          {
+            name: "About",
+            value: (await filterCommands({ client: client, category: "About" }))
+          },
+          {
+            name: "Info",
+            value: (await filterCommands({ client: client, category: "Info" }))
+          },
+          {
+            name: "Fun",
+            value: (await filterCommands({ client: client, category: "Fun"}))
+          },
+          {
+            name: "Moderation",
+            value: (await filterCommands({ client: client, category: "Mods" }))
+          },
+          {
+            name: "Users",
+            value: (await filterCommands({ client: client, category: "Users" }))
+          }
+        )
+        .setTimestamp()
+        .setFooter({ text: client.footer, iconURL: client.logo })
 
-      const collector = message.channel.createMessageComponentCollector({
-        componentType: "SELECT_MENU",
-        idle: 300000,
-        dispose: true,
-      });
-
-      collector.on("collect", async (interaction) => {
-        if (interaction.values[0] === "info") {
-          interaction
-            .update({
-              embeds: [await SendHelpEmbed({ name: "info", client: client })],
-              components: components(false),
-            })
-            .catch(() => {});
-        } else if (interaction.values[0] === "about") {
-          interaction
-            .update({
-              embeds: [await SendHelpEmbed({ name: "about", client: client })],
-              components: components(false),
-            })
-            .catch(() => {});
-        } else if (interaction.values[0] === "mods") {
-          interaction
-            .update({
-              embeds: [await SendHelpEmbed({ name: "mods", client: client })],
-              components: components(false),
-            })
-            .catch(() => {});
-        } else if (interaction.values[0] === "admin") {
-          interaction
-            .update({
-              embeds: [await SendHelpEmbed({ name: "admin", client: client })],
-              components: components(false),
-            })
-            .catch(() => {});
-        }
-      });
-
-      collector.on("end", (collected, reason) => {
-        if (reason === "time") {
-          initialMessage.edit({
-            content: "Collector timed out...",
-            components: [],
-          });
-        } else {
-          initialMessage.edit({
-            content: "Collector destroyed...",
-            components: [],
-          });
-        }
-      });
+        return message.channel.send({ embeds: [embed] });
     }
   },
 };
