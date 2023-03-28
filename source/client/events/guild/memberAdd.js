@@ -6,20 +6,15 @@ module.exports = {
   async execute(member, client) {
     try {
       if (member.guild.id === "870950609291972618") {
-        if (member.user.bot) return;
         let mainGuild = await client.guilds.cache.get("758641373074423808");
         let guildUser = await mainGuild.members.cache.get(member.user.id);
-        let pingRole = await member.guild.roles.cache.find(
-          (r) => r.id === "510065483693817867"
-        ); // Staff Managers
-        let staffRole = await mainGuild.roles.cache.find(
-          (r) => r.id === "762371586434793472"
-        ); // Website Mods
-        let auditLogs = await member.guild.channels.cache.find(
-          (c) => c.id === "870950610852266006"
-        ); //  Audit Logs
+        let staffRole = guildUser.roles.cache.find(r => r.id === '762371586434793472') // Website Mods
+        let staffCenterStaffRole = member.guild.roles.cache.get('870950609291972622') // Staff Center Web Mods
+        let staffCenterBotsRole = member.guild.roles.cache.get('870950609291972620') // Staff Center Server Bots
+        let auditLogs = await member.guild.channels.cache.find((c) => c.id === "870950610852266006"); //  Audit Logs
 
-        if (!guildUser || !guildUser.roles.cache.has(staffRole)) {
+        if (!guildUser || !staffRole && !member.user.bot) {
+          
           let embed = new client.Infinity_Gateway.MessageEmbed()
             .setTitle("Security Action Executed")
             .setColor("RED")
@@ -51,6 +46,39 @@ module.exports = {
             reason:
               "User attempted to join a Infinity Bots Staff Server but does not appear to be staff",
           });
+
+        } else {
+
+          if(!member.user.bot) member.roles.add(staffCenterStaffRole.id);
+          else member.roles.add(staffCenterBotsRole.id);
+
+          let sys = await member.guild.channels.cache.find((c) => c.id === "1090417512862191676");
+
+          let embed = new client.Infinity_Gateway.MessageEmbed()
+           .setTitle('Someone just slid in')
+           .setColor(client.color)
+           .setDescription(`${member.user.tag} has arrived`)
+           .addFields(
+            {
+              name: "Is Bot",
+              value: `${member.user.bot ? 'true' : 'false'}`,
+              inline: true
+            },
+            {
+              name: "Is Staff",
+              value: `${staffRole ? 'true' : 'false'}`,
+              inline: true
+            },
+            {
+              name: "Auto Roles",
+              value: `${staffRole && !member.user.bot ? `<@&${staffCenterStaffRole.id}>` : `<@&${staffCenterBotsRole.id}>`}`,
+              inline: true
+            }
+           )
+           .setTimestamp()
+           .setFooter({ text: client.footer, iconURL: client.logo })
+
+           return sys.send({ embeds: [embed] });
         }
       } else if (member.guild.id === "870952645811134475") {
         let chan = await member.guild.channels.cache.find(

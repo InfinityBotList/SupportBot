@@ -15,7 +15,7 @@ module.exports = {
     try {
       await client.utils.setClientPresence(client);
 
-      return client.logger("Connected to the Discord API Successfully", {
+      return client.logger(`Connected to the Discord API Successfully as: ${client.user.username}`, {
         header: "CLIENT START-UP",
         type: "ready",
       });
