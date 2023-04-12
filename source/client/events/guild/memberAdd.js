@@ -6,14 +6,20 @@ module.exports = {
   async execute(member, client) {
     try {
       if (member.guild.id === "870950609291972618") {
+
         let mainGuild = await client.guilds.cache.get("758641373074423808");
         let guildUser = await mainGuild.members.cache.get(member.user.id);
-        let staffRole = guildUser.roles.cache.find(r => r.id === '762371586434793472') // Website Mods
         let staffCenterStaffRole = member.guild.roles.cache.get('870950609291972622') // Staff Center Web Mods
         let staffCenterBotsRole = member.guild.roles.cache.get('870950609291972620') // Staff Center Server Bots
         let auditLogs = await member.guild.channels.cache.find((c) => c.id === "870950610852266006"); //  Audit Logs
 
-        if (!guildUser || !staffRole && !member.user.bot) {
+        if (!guildUser && !member.user.bot) {
+
+          let staffRole = guildUser.roles.cache.find(r => r.id === '762371586434793472') // Website Mods
+
+          if (!staffRole ) {
+
+          await member.roles.add()
           
           let embed = new client.Infinity_Gateway.MessageEmbed()
             .setTitle("Security Action Executed")
@@ -46,11 +52,28 @@ module.exports = {
             reason:
               "User attempted to join a Infinity Bots Staff Server but does not appear to be staff",
           });
+         }
 
         } else {
 
-          if(!member.user.bot) member.roles.add(staffCenterStaffRole.id);
-          else member.roles.add(staffCenterBotsRole.id);
+          await member.roles.add(staffCenterBotsRole.id);
+
+          let staff;
+          let guild;
+          let staffRole;
+
+          if (!guildUser) {
+            staffRole = false
+            guild = 'Not in main guild'
+          }
+
+          else if (guildUser) {
+            guild = 'In main guild'
+            staffRole = guildUser.roles.cache.find(r => r.id === '762371586434793472') // Website Mods
+          }
+
+          if (!staffRole) staff = 'False'
+          else staff = 'True'
 
           let sys = await member.guild.channels.cache.find((c) => c.id === "1090417512862191676");
 
@@ -66,7 +89,7 @@ module.exports = {
             },
             {
               name: "Is Staff",
-              value: `${staffRole ? 'true' : 'false'}`,
+              value: `${staff}`,
               inline: true
             },
             {
@@ -80,7 +103,9 @@ module.exports = {
 
            return sys.send({ embeds: [embed] });
         }
+
       } else if (member.guild.id === "870952645811134475") {
+
         let chan = await member.guild.channels.cache.find(
           (c) => c.id === "870952646788390918"
         );
