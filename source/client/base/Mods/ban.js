@@ -7,8 +7,9 @@ module.exports = {
   permissions: ["BAN_MEMBERS"],
 
   run: async (message, args, client) => {
-
-    let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
+    let member =
+      message.mentions.members.first() ||
+      message.guild.members.cache.get(args[0]);
     let reason = args.slice(1).join(" ");
 
     let no_member = new client.Infinity_Gateway.MessageEmbed()
