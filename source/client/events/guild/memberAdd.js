@@ -57,7 +57,11 @@ module.exports = {
             });
           }
         } else {
-          await member.roles.add(staffCenterBotsRole.id);
+          if (!member.user.bot) {
+            await member.roles.add(staffCenterStaffRole.id);
+          } else {
+            await member.roles.add(staffCenterBotsRole.id);
+          }
 
           let staff;
           let guild;
