@@ -73,7 +73,7 @@ module.exports = {
 
     if (
       command.userPerms.includes("BOT_ADMIN") &&
-      !client.perms.Admins.includes(message.member.id)
+      !client.perms.Admins.includes(message.author.id)
     ) {
       const user_perms = new client.Infinity_Gateway.MessageEmbed()
         .setTitle("ERROR: Invalid Permissions")
