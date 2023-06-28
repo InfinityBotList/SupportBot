@@ -72,6 +72,31 @@ module.exports = {
     }
 
     if (
+      command.userPerms.includes("BOT_ADMIN") &&
+      !client.perms.Admins.includes(interaction.user.id)
+    ) {
+      const user_perms = new client.Infinity_Gateway.MessageEmbed()
+        .setTitle("ERROR: Invalid Permissions")
+        .setColor(client.color)
+        .setThumbnail(client.logo)
+        .setDescription(
+          "Hold up chief, you do not have the necessary permissions"
+        )
+        .addFields({
+          name: "Required Permissions",
+          value: `${command.userPerms}`,
+          inline: true,
+        })
+        .setTimestamp()
+        .setFooter({ text: client.footer, iconURL: client.logo });
+
+      return interaction.reply({
+        embeds: [user_perms],
+        ephemeral: true,
+      });
+    }
+
+    if (
       command.permissions &&
       !message.member.permissions.has(command.permissions)
     ) {
