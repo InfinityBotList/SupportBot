@@ -84,7 +84,7 @@ module.exports = {
         )
         .addFields({
           name: "Required Permissions",
-          value: `${command.permissions}`,
+          value: `BOT_ADMIN`,
           inline: true,
         })
         .setTimestamp()
