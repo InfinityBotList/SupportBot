@@ -4,7 +4,7 @@ module.exports = {
   disabled: false,
   description: "Post the info channel embed",
   aliases: [],
-  permissions: ["ADMINISTRATOR"],
+  permissions: ["BOT_ADMIN"],
 
   run: async (message, args, client) => {
     const embed = new client.Infinity_Gateway.MessageEmbed()
