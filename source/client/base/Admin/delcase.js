@@ -6,7 +6,7 @@ module.exports = {
   disabled: false,
   description: "Delete a specific case for a user",
   aliases: [],
-  permissions: ["ADMINISTRATOR"],
+  permissions: ["BOT_ADMIN"],
 
   run: async (message, args, client) => {
     let member = message.mentions.members.first();
