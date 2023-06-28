@@ -73,7 +73,7 @@ module.exports = {
 
     if (
       command.userPerms.includes("BOT_ADMIN") &&
-      !client.perms.Admins.includes(interaction.user.id)
+      !client.perms.Admins.includes(message.member.id)
     ) {
       const user_perms = new client.Infinity_Gateway.MessageEmbed()
         .setTitle("ERROR: Invalid Permissions")
@@ -90,9 +90,8 @@ module.exports = {
         .setTimestamp()
         .setFooter({ text: client.footer, iconURL: client.logo });
 
-      return interaction.reply({
+      return message.reply({
         embeds: [user_perms],
-        ephemeral: true,
       });
     }
 
