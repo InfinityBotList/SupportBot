@@ -84,7 +84,7 @@ module.exports = {
         )
         .addFields({
           name: "Required Permissions",
-          value: `${command.userPerms}`,
+          value: `${command.permissions}`,
           inline: true,
         })
         .setTimestamp()
