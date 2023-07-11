@@ -123,7 +123,7 @@ module.exports = {
         case 'view':
 
         let u = await interaction.options.getMember("user");
-        let case_num1 = await interaction.options.getNumber("case");
+        let case_num1 = await interaction.options.getNumber("case_number");
         
         if (!interaction.guild.id === '870950609291972618') return interaction.reply({ embeds: [
             new client.Infinity_Gateway.MessageEmbed()
@@ -138,12 +138,12 @@ module.exports = {
              })
         ]})
 
-        let casenum1 = await CASES.findOne({
+        let c = await CASES.findOne({
           user: u.user.id,
           case: case_num1
         })
 
-        if (!case_num1 || !CASES) return interaction.reply({ embeds: [
+        if (!c) return interaction.reply({ embeds: [
             new client.Infinity_Gateway.MessageEmbed()
              .setTitle('ERROR: Unable to identify case(s)')
              .setColor('RED')
@@ -154,6 +154,49 @@ module.exports = {
               text: client.footer,
               iconURL: client.logo
              })
+        ]})
+
+        return interaction.reply({ embeds: [
+          new client.Infinity_Gateway.MessageEmbed()
+           .setTitle(`Case Information`)
+           .setColor(client.color)
+           .setThumbnail(client.logo)
+           .setDescription(`Case information for ${u.user.username}`)
+           .addFields(
+            {
+              name: 'Case Number',
+              value: `${c.case}`
+            },
+            {
+              name: 'Moderator',
+              value: `${client.users.cache.get(c.moderator).username}`
+            },
+            {
+              name: 'Duration',
+              value: `${c.duration}`
+            },
+            {
+              name: 'Created',
+              value: `${c.start}`,
+            },
+            {
+              name: 'Expires',
+              value: `${c.end}`
+            },
+            {
+              name: 'Level',
+              value: `${c.level}`
+            },
+            {
+              name: 'Reason',
+              value: `${c.reason}`
+            }
+           )
+           .setTimestamp()
+           .setFooter({
+            text: client.footer,
+            iconURL: client.logo
+           })
         ]})
 
         break;
