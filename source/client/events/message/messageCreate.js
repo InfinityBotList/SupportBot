@@ -72,7 +72,7 @@ module.exports = {
     }
 
     if (
-      command.permissions.includes("BOT_ADMIN") &&
+      command.permissions.includes(client.perms.Layout.Admin) &&
       !client.perms.Admins.includes(message.author.id)
     ) {
       const user_perms = new client.Infinity_Gateway.MessageEmbed()

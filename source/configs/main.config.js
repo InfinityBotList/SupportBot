@@ -17,7 +17,7 @@ module.exports = {
   Client: {
     ID: "818419115068751892",
     Commands: {
-      prefix: "<<",
+      prefix: "<<<",
       timeout: "10000",
       whitelist: false,
     },
