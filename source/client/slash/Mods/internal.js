@@ -28,6 +28,19 @@ module.exports = {
         ]
       },
       {
+        name: "list",
+        description: "List a Staff Members Cases",
+        type: "SUB_COMMAND",
+        options: [
+          {
+            name: "user",
+            description: "The staff member it affected",
+            required: true,
+            type: 6
+          }
+        ]
+      },
+      {
         name: "create",
         description: "Create a new Staff Case (warn etc)",
         type: "SUB_COMMAND",
@@ -198,6 +211,51 @@ module.exports = {
             iconURL: client.logo
            })
         ]})
+
+        break;
+
+        /**
+         * List cases
+         */
+        case 'list':
+
+        let staff_user = await interaction.options.getMember("user");
+
+        let sc = await CASES.find({ user: staff_user.user.id});
+
+        if (!sc || sc == null || sc.length == 0) return interaction.reply({ embeds: [
+          new client.Infinity_Gateway.MessageEmbed()
+            .setTitle('ERROR: Unable to identify case(s)')
+            .setColor('RED')
+            .setThumbnail(client.logo)
+            .setDescription('It looks like this staff member has no available cases')
+            .setTimestamp()
+            .setFooter({
+              text: client.footer,
+              iconURL: client.logo
+            })
+        ]})
+
+        let embed = new client.Infinity_Gateway.MessageEmbed()
+         .setTitle(`Cases for: ${staff_user.user.username}`)
+         .setColor(client.color)
+         .setThumbnail(client.logo)
+         .setTimestamp()
+         .setFooter({
+          text: client.footer,
+          iconURL: client.logo
+         })
+
+        await sc.map((c) => {
+             embed.addFields(
+              {
+                name: `Case: #${c.case}`,
+                value: `• User: ${c.user}\n• Moderator: ${c.moderator}\n• Level: ${c.level}\n• Duration: ${c.duration}\n• Started: ${c.start}\n• Expires: ${c.end}`
+              }
+             )
+        })
+
+        return interaction.reply({ embeds: [embed]})
 
         break;
 
