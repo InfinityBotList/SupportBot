@@ -446,7 +446,7 @@ module.exports = {
              })
         ]})
 
-         /**if (staff_u2 == interaction.member) return interaction.reply({ embeds: [
+         if (staff_u2 == interaction.member) return interaction.reply({ embeds: [
           new client.Infinity_Gateway.MessageEmbed()
            .setTitle('ERROR: Invalid User')
            .setColor('RED')
@@ -457,7 +457,7 @@ module.exports = {
             text: client.footer,
             iconURL: client.logo
            })
-         ]})**/
+         ]})
 
          if (!client.perms.Admins.includes(interaction.member.user.id)) return interaction.reply({ embeds: [
            new client.Infinity_Gateway.MessageEmbed()
