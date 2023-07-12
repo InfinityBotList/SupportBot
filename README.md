@@ -4,7 +4,7 @@ Official Support Bot/Manager for Infinity Bot List!
 ---
 
 ## About
-This bot is used for sending helpful tips and messages!
+This bot is used for sending helpful tips/messages and managing the staff team and discord server(s)!
 
 ---
 
