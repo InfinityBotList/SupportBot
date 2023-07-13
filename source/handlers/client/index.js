@@ -13,23 +13,23 @@ const utils = require("@handlers/discord/presence");
  * INITIALIZE THE DISCORD CLIENT
  */
 const client = new Client({
-  intents: [
-    Intents.FLAGS.GUILDS,
-    Intents.FLAGS.GUILD_BANS,
-    Intents.FLAGS.GUILD_INVITES,
-    Intents.FLAGS.GUILD_MEMBERS,
-    Intents.FLAGS.GUILD_MESSAGES,
-    Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
-    Intents.FLAGS.GUILD_MESSAGE_TYPING,
-    Intents.FLAGS.GUILD_PRESENCES,
-    Intents.FLAGS.DIRECT_MESSAGES,
-    Intents.FLAGS.DIRECT_MESSAGE_REACTIONS,
-    Intents.FLAGS.DIRECT_MESSAGE_TYPING,
-  ],
-  partials: ["CHANNEL", "REACTION", "GUILD_MEMBER", "MESSAGE", "USER"],
-  allowedMentions: {
-    repliedUser: true,
-  },
+    intents: [
+        Intents.FLAGS.GUILDS,
+        Intents.FLAGS.GUILD_BANS,
+        Intents.FLAGS.GUILD_INVITES,
+        Intents.FLAGS.GUILD_MEMBERS,
+        Intents.FLAGS.GUILD_MESSAGES,
+        Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
+        Intents.FLAGS.GUILD_MESSAGE_TYPING,
+        Intents.FLAGS.GUILD_PRESENCES,
+        Intents.FLAGS.DIRECT_MESSAGES,
+        Intents.FLAGS.DIRECT_MESSAGE_REACTIONS,
+        Intents.FLAGS.DIRECT_MESSAGE_TYPING,
+    ],
+    partials: ["CHANNEL", "REACTION", "GUILD_MEMBER", "MESSAGE", "USER"],
+    allowedMentions: {
+        repliedUser: true,
+    },
 });
 
 /**
@@ -48,11 +48,11 @@ client.perms = perms;
 client.utils = utils;
 client.color = "#8A6AFD";
 client.logo =
-  "https://cdn.discordapp.com/attachments/653733403841134600/1086513475888611410/system.png";
+    "https://cdn.discordapp.com/attachments/653733403841134600/1086513475888611410/system.png";
 client.glogo =
-  "https://cdn.discordapp.com/attachments/653733403841134600/1080379676922490880/Infin2.png";
+    "https://cdn.discordapp.com/attachments/653733403841134600/1080379676922490880/Infin2.png";
 client.glogo2 =
-  "https://cdn.discordapp.com/attachments/653733403841134600/1080379677186728026/imageedit_9_8322985005.png";
+    "https://cdn.discordapp.com/attachments/653733403841134600/1080379677186728026/imageedit_9_8322985005.png";
 client.footer = "© Copyright 2020 - Infinity Development";
 
 /**
@@ -74,17 +74,17 @@ events.loadSlash(client);
  * @private unhandledRejection
  */
 process.on("uncaughtException", (err) => {
-  log(`Uncaught Exception: ${err}`, {
-    header: "FATAL ERROR",
-    type: "error",
-  });
+    log(`Uncaught Exception: ${err}`, {
+        header: "FATAL ERROR",
+        type: "error",
+    });
 });
 
 process.on("unhandledRejection", (reason, promise) => {
-  log(`Unhandled Rejection: ${reason.stack}`, {
-    header: "FATAL ERROR",
-    type: "error",
-  });
+    log(`Unhandled Rejection: ${reason.stack}`, {
+        header: "FATAL ERROR",
+        type: "error",
+    });
 });
 
 /**
