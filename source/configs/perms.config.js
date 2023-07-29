@@ -6,27 +6,25 @@
  * Managers = Infinity Staff Managers
  * Moderators = Infinity Website Mods
  *
-*/
+ */
 
 module.exports = {
   Admins: [
     "510065483693817867", // Toxic
     "896951964234043413", // Elixir
-    "728871946456137770" // Rootspring
+    "728871946456137770", // Rootspring
   ],
-  Managers : [
+  Managers: [
     "510065483693817867", // Toxic Dev
     "896951964234043413", // Toxics Elixir
     "728871946456137770", // Rootspring
     "707385680279633970", // Sunrise
-    "303278996932526084" // Rizon
+    "303278996932526084", // Rizon
   ],
-  Moderators: [
-    ""
-  ],
+  Moderators: [""],
   Layout: {
     Admin: "BOT_ADMIN",
     Manager: "BOT_MANAGER",
-    Moderator: "BOT_MODERATOR"
-  }
+    Moderator: "BOT_MODERATOR",
+  },
 };

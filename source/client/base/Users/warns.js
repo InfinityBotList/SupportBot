@@ -17,7 +17,7 @@ module.exports = {
       .setColor("RED")
       .setThumbnail(client.logo)
       .setDescription(
-        "Please mention the user you want to check a warnings for"
+        "Please mention the user you want to check a warnings for",
       )
       .setTimestamp()
       .setFooter({ text: client.footer, iconURL: client.logo });
@@ -59,7 +59,7 @@ module.exports = {
             name: "Case Numbers",
             value: `${cases.map((c) => c.case)}`,
             inline: true,
-          }
+          },
         )
         .setTimestamp()
         .setFooter({ text: client.footer, iconURL: client.logo });

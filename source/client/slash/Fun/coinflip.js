@@ -43,7 +43,7 @@ module.exports = {
           name: "Results",
           value: `${status}`,
           inline: true,
-        }
+        },
       )
       .setTimestamp()
       .setFooter({ text: client.footer, iconURL: client.logo });

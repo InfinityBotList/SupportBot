@@ -35,7 +35,7 @@ const internalCases = mongoose.Schema({
   duration: String,
   level: String,
   start: String,
-  end: String
+  end: String,
 });
 
 module.exports = mongoose.model("internalCases", internalCases);

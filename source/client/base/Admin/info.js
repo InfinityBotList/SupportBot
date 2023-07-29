@@ -12,7 +12,7 @@ module.exports = {
       .setColor(client.color)
       .setThumbnail(client.glogo2)
       .setDescription(
-        "Search our vast list of bots for an exciting start to your Discord Server. Filter by name, category, tags and description to find a bot that suits your needs!"
+        "Search our vast list of bots for an exciting start to your Discord Server. Filter by name, category, tags and description to find a bot that suits your needs!",
       )
       .addFields(
         {
@@ -80,7 +80,7 @@ module.exports = {
           value:
             "➱ [YouTube](https://www.youtube.com/@InfinityBotList)\n➱ [Truth Social](https://truthsocial.com/@InfinityBots)\n➱ [Medium](https://medium.com/@infinitybotlist)\n➱ [Instagram](https://www.instagram.com/infinitybotlist/)\n➱ [TikTok](https://www.tiktok.com/@infinitybotlist)",
           inline: true,
-        }
+        },
       )
       .setTimestamp()
       .setFooter({ text: client.footer, iconURL: client.glogo2 });

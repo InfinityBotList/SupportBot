@@ -17,7 +17,7 @@ module.exports.SendHelpEmbed = async ({ name, client }) => {
       .setColor(client.color)
       .setThumbnail(client.logo)
       .setDescription(
-        "**PLEASE NOTE:** You can get command specific info using `<<help <CommandName>`"
+        "**PLEASE NOTE:** You can get command specific info using `<<help <CommandName>`",
       )
       .addFields({
         name: "Available Commands",
@@ -34,7 +34,7 @@ module.exports.SendHelpEmbed = async ({ name, client }) => {
       .setColor(client.color)
       .setThumbnail(client.logo)
       .setDescription(
-        "**PLEASE NOTE:** You can get command specific info using `<<help <CommandName>`"
+        "**PLEASE NOTE:** You can get command specific info using `<<help <CommandName>`",
       )
       .addFields({
         name: "Available Commands",
@@ -51,7 +51,7 @@ module.exports.SendHelpEmbed = async ({ name, client }) => {
       .setColor(client.color)
       .setThumbnail(client.logo)
       .setDescription(
-        "**PLEASE NOTE:** You can get command specific info using `<<help <CommandName>`"
+        "**PLEASE NOTE:** You can get command specific info using `<<help <CommandName>`",
       )
       .addFields({
         name: "Available Commands",
@@ -68,7 +68,7 @@ module.exports.SendHelpEmbed = async ({ name, client }) => {
       .setColor(client.color)
       .setThumbnail(client.logo)
       .setDescription(
-        "**PLEASE NOTE:** You can get command specific info using `<<help <CommandName>`"
+        "**PLEASE NOTE:** You can get command specific info using `<<help <CommandName>`",
       )
       .addFields({
         name: "Available Commands",

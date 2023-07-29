@@ -46,7 +46,7 @@ module.exports = {
       .setTitle("Magic 8Ball")
       .setColor(client.color)
       .setThumbnail(
-        "https://cdn.discordapp.com/attachments/653733403841134600/1088241600133607515/ezgifcom-gif-maker_8.7b86d9b5eefc.gif"
+        "https://cdn.discordapp.com/attachments/653733403841134600/1088241600133607515/ezgifcom-gif-maker_8.7b86d9b5eefc.gif",
       )
       .addFields(
         {
@@ -56,7 +56,7 @@ module.exports = {
         {
           name: "8Ball Says",
           value: `${res[Math.floor(Math.random() * res.length)]}`,
-        }
+        },
       )
       .setTimestamp()
       .setFooter({ text: client.footer, iconURL: client.logo });

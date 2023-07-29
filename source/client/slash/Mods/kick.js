@@ -28,7 +28,7 @@ module.exports = {
       .setColor(client.color)
       .setThumbnail(client.logo)
       .setDescription(
-        "Hold up, seems i am unable to kick that user.. This is usually due to them having higher permissions!"
+        "Hold up, seems i am unable to kick that user.. This is usually due to them having higher permissions!",
       )
       .setTimestamp()
       .setFooter({ text: client.footer, iconURL: client.logo });
@@ -65,7 +65,7 @@ module.exports = {
             name: "Moderator",
             value: `${interaction.member.user.username}#${interaction.member.user.discriminator}`,
             inline: true,
-          }
+          },
         )
         .setTimestamp()
         .setFooter({ text: client.footer, iconURL: client.logo });

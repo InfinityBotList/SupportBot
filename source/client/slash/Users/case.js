@@ -37,7 +37,7 @@ module.exports = {
         .setColor(client.color)
         .setThumbnail(client.logo)
         .setDescription(
-          "No case with that number exists for this user in this guild!"
+          "No case with that number exists for this user in this guild!",
         )
         .setTimestamp()
         .setFooter({ text: client.footer, iconURL: client.logo });
@@ -79,7 +79,7 @@ module.exports = {
             name: "Action Reason",
             value: `${caseInfo.reason}`,
             inline: true,
-          }
+          },
         )
         .setTimestamp()
         .setFooter({ text: client.footer, iconURL: client.logo });

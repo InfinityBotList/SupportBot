@@ -26,7 +26,7 @@ module.exports = {
       new client.Infinity_Gateway.MessageActionRow().addComponents(
         btn,
         btn2,
-        btn3
+        btn3,
       );
 
     const embed = new client.Infinity_Gateway.MessageEmbed()
@@ -65,7 +65,7 @@ module.exports = {
           name: "Support",
           value: "[infinitybots.gg/help](https://infinitybots.gg/help)",
           inline: true,
-        }
+        },
       )
       .setTimestamp()
       .setFooter({ text: client.footer, iconURL: client.logo });

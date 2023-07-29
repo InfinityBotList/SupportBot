@@ -66,7 +66,7 @@ module.exports = {
           name: "Reason",
           value: `\`${reason}\``,
           inline: true,
-        }
+        },
       )
       .setTimestamp()
       .setFooter({ text: client.footer, iconURL: client.logo });

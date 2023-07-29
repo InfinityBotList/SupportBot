@@ -30,7 +30,7 @@ module.exports = {
         .setColor(client.color)
         .setThumbnail(client.logo)
         .setDescription(
-          "Whoops, looks like this user has not been warned here!"
+          "Whoops, looks like this user has not been warned here!",
         )
         .setTimestamp()
         .setFooter({ text: client.footer, iconURL: client.logo });
@@ -52,7 +52,7 @@ module.exports = {
             name: "Warnings",
             value: `${cases.length}`,
             inline: true,
-          }
+          },
         )
         .setTimestamp()
         .setFooter({ text: client.footer, iconURL: client.logo });

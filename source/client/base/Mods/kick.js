@@ -14,7 +14,7 @@ module.exports = {
       .setColor(client.color)
       .setThumbnail(client.logo)
       .setDescription(
-        "Okay chief listen, i can not kick the air! Mention a user to kick!"
+        "Okay chief listen, i can not kick the air! Mention a user to kick!",
       )
       .setTimestamp()
       .setFooter({ text: client.footer, iconURL: client.logo });
@@ -32,7 +32,7 @@ module.exports = {
       .setColor(client.color)
       .setThumbnail(client.logo)
       .setDescription(
-        "Hold up, seems i am unable to kick that user.. This is usually due to them having higher permissions!"
+        "Hold up, seems i am unable to kick that user.. This is usually due to them having higher permissions!",
       )
       .setTimestamp()
       .setFooter({ text: client.footer, iconURL: client.logo });
@@ -77,7 +77,7 @@ module.exports = {
             name: "Moderator",
             value: `${message.author.tag}`,
             inline: true,
-          }
+          },
         )
         .setTimestamp()
         .setFooter({ text: client.footer, iconURL: client.logo });

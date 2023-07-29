@@ -13,12 +13,12 @@ module.exports = {
         let staffCenterBotsRole =
           member.guild.roles.cache.get("870950609291972620"); // Staff Center Server Bots
         let auditLogs = await member.guild.channels.cache.find(
-          (c) => c.id === "870950610852266006"
+          (c) => c.id === "870950610852266006",
         ); //  Audit Logs
 
         if (!guildUser && !member.user.bot) {
           let staffRole = guildUser.roles.cache.find(
-            (r) => r.id === "762371586434793472"
+            (r) => r.id === "762371586434793472",
           ); // Website Mods
 
           if (!staffRole) {
@@ -44,7 +44,7 @@ module.exports = {
                   value:
                     "User attempted to join a Infinity Bots Staff Server but does not appear to be staff",
                   inline: false,
-                }
+                },
               )
               .setTimestamp()
               .setFooter({ text: client.footer, iconURL: client.logo });
@@ -73,7 +73,7 @@ module.exports = {
           } else if (guildUser) {
             guild = "In main guild";
             staffRole = guildUser.roles.cache.find(
-              (r) => r.id === "762371586434793472"
+              (r) => r.id === "762371586434793472",
             ); // Website Mods
           }
 
@@ -81,7 +81,7 @@ module.exports = {
           else staff = "True";
 
           let sys = await member.guild.channels.cache.find(
-            (c) => c.id === "1090417512862191676"
+            (c) => c.id === "1090417512862191676",
           );
 
           let embed = new client.Infinity_Gateway.MessageEmbed()
@@ -107,7 +107,7 @@ module.exports = {
                     : `<@&${staffCenterBotsRole.id}>`
                 }`,
                 inline: true,
-              }
+              },
             )
             .setTimestamp()
             .setFooter({ text: client.footer, iconURL: client.logo });
@@ -116,10 +116,10 @@ module.exports = {
         }
       } else if (member.guild.id === "870952645811134475") {
         let chan = await member.guild.channels.cache.find(
-          (c) => c.id === "870952646788390918"
+          (c) => c.id === "870952646788390918",
         );
         let staff = await member.guild.roles.cache.find(
-          (r) => r.id === "870952645811134480"
+          (r) => r.id === "870952645811134480",
         );
 
         let embed = new client.Infinity_Gateway.MessageEmbed()
@@ -137,7 +137,7 @@ module.exports = {
               name: "User ID",
               value: `${member.user.id}`,
               inline: true,
-            }
+            },
           )
           .setTimestamp()
           .setFooter({ text: client.footer, iconURL: client.logo });
@@ -149,10 +149,10 @@ module.exports = {
           .then(async (req) => {
             if (req.body.type == "pending") {
               let r = await member.guild.roles.cache.find(
-                (r) => r.id === "870952645811134478"
+                (r) => r.id === "870952645811134478",
               );
               let chan = await member.guild.channels.cache.find(
-                (c) => c.id === "870952646788390918"
+                (c) => c.id === "870952646788390918",
               );
 
               try {
@@ -163,7 +163,7 @@ module.exports = {
                   .setColor(client.color)
                   .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
                   .setDescription(
-                    `${member.user.tag} is currently in queue so i have applied the ${r} role`
+                    `${member.user.tag} is currently in queue so i have applied the ${r} role`,
                   )
                   .setTimestamp()
                   .setFooter({ text: client.footer, iconURL: client.logo });
@@ -175,7 +175,7 @@ module.exports = {
                   .setColor(client.color)
                   .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
                   .setDescription(
-                    `${member.user.tag} is currently in queue but for some reason i was unable to apply the ${r} role`
+                    `${member.user.tag} is currently in queue but for some reason i was unable to apply the ${r} role`,
                   )
                   .addFields({
                     name: "Steps to fix",
@@ -188,7 +188,7 @@ module.exports = {
               }
             } else if (req.body.type !== "pending") {
               let chan = await member.guild.channels.cache.find(
-                (c) => c.id === "870952646788390918"
+                (c) => c.id === "870952646788390918",
               );
 
               let embed = new client.Infinity_Gateway.MessageEmbed()
@@ -196,7 +196,7 @@ module.exports = {
                 .setColor(client.color)
                 .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
                 .setDescription(
-                  `${member.user.tag} is not currently pending approval or not listed on our site!`
+                  `${member.user.tag} is not currently pending approval or not listed on our site!`,
                 )
                 .setTimestamp()
                 .setFooter({ text: client.footer, iconURL: client.logo });
@@ -206,7 +206,7 @@ module.exports = {
           })
           .catch(async () => {
             let chan = await member.guild.channels.cache.find(
-              (c) => c.id === "870952646788390918"
+              (c) => c.id === "870952646788390918",
             );
 
             let embed = new client.Infinity_Gateway.MessageEmbed()
@@ -214,7 +214,7 @@ module.exports = {
               .setColor(client.color)
               .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
               .setDescription(
-                `${member.user.tag} is not currently pending approval or not listed on our site!`
+                `${member.user.tag} is not currently pending approval or not listed on our site!`,
               )
               .setTimestamp()
               .setFooter({ text: client.footer, iconURL: client.logo });

@@ -12,7 +12,7 @@ module.exports = {
       .setColor(client.color)
       .setThumbnail(client.glogo2)
       .setDescription(
-        "General Rules that all of our Server Members are expected to follow at all times with no exceptions!"
+        "General Rules that all of our Server Members are expected to follow at all times with no exceptions!",
       )
       .addFields(
         {
@@ -74,7 +74,7 @@ module.exports = {
           name: "∞ No shock disturbing or seizure enducing content",
           value:
             "This includes images or videos of gore or bodily fluids and any images or gifs that provide an excessive amount of flashing colours.",
-        }
+        },
       )
       .setTimestamp()
       .setFooter({ text: client.footer, iconURL: client.glogo2 });
@@ -84,7 +84,7 @@ module.exports = {
       .setColor(client.color)
       .setThumbnail(client.glogo2)
       .setDescription(
-        "All listed bots are expected to abide by these rules at all times with no exceptions!"
+        "All listed bots are expected to abide by these rules at all times with no exceptions!",
       )
       .addFields(
         {
@@ -176,7 +176,7 @@ module.exports = {
           name: " ∞  Any and all music bots. ",
           value:
             "Bots who provide music through YouTube will no longer be accepted in our list as it violates both the YouTube Terms of Service and Discord Terms of Service.",
-        }
+        },
       )
       .setTimestamp()
       .setFooter({ text: client.footer, iconURL: client.glogo2 });
@@ -236,7 +236,7 @@ module.exports = {
           name: "∞ All bot pages should include",
           value:
             "A SFW and descriptive long description with basic command usage, examples and information, we enforce character limits for a reason your bot is not going to get attention if you don’t put in the effort to make your page look nice.",
-        }
+        },
       )
       .setTimestamp()
       .setFooter({ text: client.footer, iconURL: client.glogo2 });
@@ -246,7 +246,7 @@ module.exports = {
       .setColor(client.color)
       .setThumbnail(client.glogo2)
       .setDescription(
-        "We are, first and foremost, a community. Infinity Bots has many features: partnership, certification, verification, and of course most importantly: Text and Voice chat. You should treat this server like you would any other Bot List or general discord community."
+        "We are, first and foremost, a community. Infinity Bots has many features: partnership, certification, verification, and of course most importantly: Text and Voice chat. You should treat this server like you would any other Bot List or general discord community.",
       )
       .addFields(
         {
@@ -318,7 +318,7 @@ module.exports = {
           name: "∞ Your presence in this server implies that you accept and understand these rules and policies",
           value:
             "Including all further changes. These changes might be done at any time without notice, it is your responsibility to check for them.",
-        }
+        },
       )
       .setTimestamp()
       .setFooter({ text: client.footer, iconURL: client.glogo2 });

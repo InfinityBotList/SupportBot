@@ -72,7 +72,7 @@ module.exports = {
                 description: "View all the User Commands",
                 emoji: "🧘‍♂️",
               },
-            ])
+            ]),
         ),
       ];
 

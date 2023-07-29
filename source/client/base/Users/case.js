@@ -26,7 +26,7 @@ module.exports = {
       .setColor("RED")
       .setThumbnail(client.logo)
       .setDescription(
-        "Please provide a valid case number (ex: ``<<case @Toxic Dev 2``)"
+        "Please provide a valid case number (ex: ``<<case @Toxic Dev 2``)",
       )
       .setTimestamp()
       .setFooter({ text: client.footer, iconURL: client.logo });
@@ -45,7 +45,7 @@ module.exports = {
       .setColor("RED")
       .setThumbnail(client.logo)
       .setDescription(
-        "No case with that number exists for this user in this guild!"
+        "No case with that number exists for this user in this guild!",
       )
       .setTimestamp()
       .setFooter({ text: client.footer, iconURL: client.logo });
@@ -87,7 +87,7 @@ module.exports = {
             name: "Action Reason",
             value: `${caseFetch.reason}`,
             inline: true,
-          }
+          },
         )
         .setTimestamp()
         .setFooter({ text: client.footer, iconURL: client.logo });

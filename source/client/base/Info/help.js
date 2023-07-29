@@ -39,7 +39,7 @@ module.exports = {
         .setColor(client.color)
         .setThumbnail(client.logo)
         .setDescription(
-          "NOTE: use `<<help <cmdName>` to get Command Specific Help"
+          "NOTE: use `<<help <cmdName>` to get Command Specific Help",
         )
         .addFields(
           {
@@ -65,7 +65,7 @@ module.exports = {
           {
             name: "Users",
             value: await filterCommands({ client: client, category: "Users" }),
-          }
+          },
         )
         .setTimestamp()
         .setFooter({ text: client.footer, iconURL: client.logo });

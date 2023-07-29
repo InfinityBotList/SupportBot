@@ -20,7 +20,7 @@ module.exports = {
         {
           header: "CLIENT START-UP",
           type: "ready",
-        }
+        },
       );
     } catch (err) {
       return client.logger(`Unable to establish connection: ${err.stack}`, {

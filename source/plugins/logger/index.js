@@ -87,7 +87,7 @@ const log = (
     header: "",
     delimitor: "=",
     type: TYPES.info,
-  }
+  },
 ) => {
   let transformedMessage = message;
 
@@ -110,7 +110,7 @@ const log = (
     .padStart(
       Math.floor((minStringLength - paddedHeader.length) / 2) +
         paddedHeader.length,
-      delimitor
+      delimitor,
     )
     .padEnd(minStringLength, delimitor);
 

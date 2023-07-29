@@ -32,7 +32,7 @@ module.exports = {
                 - [Staff Templates](https://infinitybots.gg/help/staff/templates)\n
                 - [Onboarding Info](https://infinitybots.gg/help/staff)`,
           inline: true,
-        }
+        },
       )
       .setTimestamp()
       .setFooter({ text: client.footer, iconURL: client.logo });

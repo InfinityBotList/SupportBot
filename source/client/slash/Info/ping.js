@@ -20,7 +20,7 @@ module.exports = {
           name: "Latency",
           value: `\`${Date.now() - interaction.createdTimestamp}ms\``,
           inline: true,
-        }
+        },
       )
       .setTimestamp()
       .setFooter({ text: client.footer, iconURL: client.logo });

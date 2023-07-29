@@ -68,7 +68,7 @@ module.exports = {
           name: "Voting Time",
           value: `${voteStatus.vote_info.vote_time}`,
           inline: true,
-        }
+        },
       )
       .setTimestamp()
       .setFooter({ text: client.footer, iconURL: client.logo });

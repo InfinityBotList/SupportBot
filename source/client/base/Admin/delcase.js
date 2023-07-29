@@ -25,7 +25,7 @@ module.exports = {
       .setColor("RED")
       .setThumbnail(client.logo)
       .setDescription(
-        "Please provide a valid case number (ex: ``<<delcase @Toxic Dev 2``)"
+        "Please provide a valid case number (ex: ``<<delcase @Toxic Dev 2``)",
       )
       .setTimestamp()
       .setFooter({ text: client.footer, iconURL: client.logo });
@@ -46,7 +46,7 @@ module.exports = {
             .setColor("RED")
             .setThumbnail(client.logo)
             .setDescription(
-              "No case with that number exists for this user in this guild!"
+              "No case with that number exists for this user in this guild!",
             )
             .setTimestamp()
             .setFooter({ text: client.footer, iconURL: client.logo });
@@ -58,14 +58,14 @@ module.exports = {
             .setColor("RED")
             .setThumbnail(client.logo)
             .setDescription(
-              "Case has been deleted, this may take a minute to reflect in our Database!"
+              "Case has been deleted, this may take a minute to reflect in our Database!",
             )
             .setTimestamp()
             .setFooter({ text: client.footer, iconURL: client.logo });
 
           return message.reply({ embeds: [embed] });
         }
-      }
+      },
     );
   },
 };

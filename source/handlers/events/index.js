@@ -26,7 +26,7 @@ const loadEvents = async function (client) {
           {
             header: "CLIENT EVENTS",
             type: "error",
-          }
+          },
         );
 
         continue;
@@ -72,7 +72,7 @@ const loadSlash = async function (client) {
           {
             header: "SLASH COMMANDS",
             type: "error",
-          }
+          },
         );
       }
     }
@@ -90,7 +90,7 @@ const loadSlash = async function (client) {
           {
             header: "DISCORD APPLICATION REGISTRY",
             type: "ready",
-          }
+          },
         );
       })
       .catch((e) => {
@@ -131,7 +131,7 @@ const loadBase = async function (client) {
           {
             header: "PREFIX COMMANDS",
             type: "command",
-          }
+          },
         );
       }
     }

@@ -19,7 +19,7 @@ module.exports = {
         .setColor(client.color)
         .setThumbnail(client.logo)
         .setDescription(
-          "Hold up chief, you do not have the necessary permissions"
+          "Hold up chief, you do not have the necessary permissions",
         )
         .addFields({
           name: "Required Permissions",
@@ -44,7 +44,7 @@ module.exports = {
         .setColor(client.color)
         .setThumbnail(client.logo)
         .setDescription(
-          "Hold up chief, you do not have the necessary permissions"
+          "Hold up chief, you do not have the necessary permissions",
         )
         .addFields({
           name: "Required Permissions",
@@ -69,7 +69,7 @@ module.exports = {
         .setColor(client.color)
         .setThumbnail(client.logo)
         .setDescription(
-          "Hold up chief, you do not have the necessary permissions"
+          "Hold up chief, you do not have the necessary permissions",
         )
         .addFields({
           name: "Required Permissions",

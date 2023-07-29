@@ -29,7 +29,7 @@ module.exports = {
       .get(`https://spider.infinitybots.gg/bots/${member.user.id}`)
       .then(async (req) => {
         let role = await message.guild.roles.cache.find(
-          (c) => c.id === "870952645811134478"
+          (c) => c.id === "870952645811134478",
         );
 
         let embed3 = new client.Infinity_Gateway.MessageEmbed()
@@ -61,7 +61,7 @@ module.exports = {
           .setColor("RED")
           .setThumbnail(client.logo)
           .setDescription(
-            "**Bot** is not in queue or not listed on our website"
+            "**Bot** is not in queue or not listed on our website",
           )
           .setTimestamp()
           .setFooter({ text: client.footer, iconURL: client.logo });

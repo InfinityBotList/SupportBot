@@ -25,7 +25,7 @@ module.exports.SendCmdHelpEmbed = async ({
         name: "Aliases",
         value: `${aliases}`,
         inline: true,
-      }
+      },
     )
     .setTimestamp()
     .setFooter({ text: client.footer, iconURL: client.logo });

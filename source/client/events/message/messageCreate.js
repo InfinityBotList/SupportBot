@@ -25,7 +25,7 @@ module.exports = {
             name: "My help command",
             value: "``<<help`` or ``/help``",
             inline: true,
-          }
+          },
         )
         .setTimestamp()
         .setFooter({ text: client.footer, iconURL: client.logo });
@@ -47,7 +47,7 @@ module.exports = {
     const command =
       client.commands.get(commandName) ||
       client.commands.find(
-        (cmd) => cmd.aliases && cmd.aliases.includes(commandName)
+        (cmd) => cmd.aliases && cmd.aliases.includes(commandName),
       );
 
     if (!command) return;
@@ -80,7 +80,7 @@ module.exports = {
         .setColor(client.color)
         .setThumbnail(client.logo)
         .setDescription(
-          "Hold up chief, you do not have the necessary permissions"
+          "Hold up chief, you do not have the necessary permissions",
         )
         .addFields({
           name: "Required Permissions",
@@ -100,7 +100,7 @@ module.exports = {
       !message.member.permissions.has(command.permissions)
     ) {
       embedBuilder.setDescription(
-        "You do not have the necessary permissions to execute this command"
+        "You do not have the necessary permissions to execute this command",
       );
 
       return message.reply({ embeds: [embedBuilder] });
@@ -108,7 +108,7 @@ module.exports = {
 
     if (command.disabled) {
       embedBuilder.setDescription(
-        "Whoops, this command is currently disabled. Please try again later!"
+        "Whoops, this command is currently disabled. Please try again later!",
       );
 
       return message.reply({ embeds: [embedBuilder] });

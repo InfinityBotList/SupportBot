@@ -50,7 +50,7 @@ module.exports = {
       .setColor("RED")
       .setThumbnail(client.logo)
       .setDescription(
-        "Warnings do not count towards bots. You are better off to just ban or kick them!"
+        "Warnings do not count towards bots. You are better off to just ban or kick them!",
       )
       .setTimestamp()
       .setFooter({ text: client.footer, iconURL: client.logo });
@@ -74,7 +74,7 @@ module.exports = {
         .setColor("RED")
         .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
         .setDescription(
-          "Whoops, seems like this user has received to many warnings in this guild"
+          "Whoops, seems like this user has received to many warnings in this guild",
         )
         .addFields(
           {
@@ -91,7 +91,7 @@ module.exports = {
             name: "Warnings Allowed",
             value: "``3``",
             inline: true,
-          }
+          },
         )
         .setTimestamp()
         .setFooter({ text: client.footer, iconURL: client.logo });
@@ -130,7 +130,7 @@ module.exports = {
           name: "Moderator",
           value: `${message.author.tag}`,
           inline: true,
-        }
+        },
       )
       .setTimestamp()
       .setFooter({ text: client.footer, iconURL: client.logo });

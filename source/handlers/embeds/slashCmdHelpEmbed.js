@@ -19,7 +19,7 @@ module.exports.SendSlashCmdHelpEmbed = async ({
         name: "Category",
         value: `${cmdCategory}`,
         inline: true,
-      }
+      },
     )
     .setTimestamp()
     .setFooter({ text: client.footer, iconURL: client.logo });
